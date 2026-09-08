@@ -1,0 +1,21 @@
+{
+  "appId": "",
+  "version": "1.0.0",
+  "mode": "dynamic",
+  "endpoint": "",
+  "oauthReferenceId": "",
+  "name": {
+    "short": "BC Nativo",
+    "full": "Business Central para Copilot Cowork"
+  },
+  "description": {
+    "short": "Consulta Business Central desde Cowork con tu identidad y permisos.",
+    "full": "Descubre acciones de lectura, consulta su esquema y accede a los datos autorizados mediante el MCP nativo de Business Central."
+  },
+  "developer": {
+    "name": "",
+    "websiteUrl": "",
+    "privacyUrl": "",
+    "termsOfUseUrl": ""
+  }
+}

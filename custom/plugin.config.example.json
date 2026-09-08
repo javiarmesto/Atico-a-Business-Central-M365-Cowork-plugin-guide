@@ -1,0 +1,11 @@
+{
+  "appId": "",
+  "version": "1.0.0",
+  "language": "en",
+  "example": "none",
+  "endpoint": "",
+  "oauthReferenceId": "",
+  "name": { "short": "BC Custom", "full": "Business Central custom MCP for Copilot Cowork" },
+  "description": { "short": "Connect Cowork to your own Business Central MCP server.", "full": "Query your Business Central MCP server through a connector configured for your organization." },
+  "developer": { "name": "", "websiteUrl": "", "privacyUrl": "", "termsOfUseUrl": "" }
+}

@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="192" height="192" viewBox="0 0 192 192" role="img" aria-labelledby="title desc">
+  <title id="title">ático</title>
+  <desc id="desc">Un tejado abierto en navy protege dos hojas de contexto conectadas en cyan.</desc>
+  <rect width="192" height="192" fill="#F8F7F3"/>
+  <path d="M24 128 L96 52 L168 128" fill="none" stroke="#25235F" stroke-width="10" stroke-linejoin="miter"/>
+  <path d="M91 34 L105 18" fill="none" stroke="#25235F" stroke-width="8"/>
+  <path d="M44 140 H148" fill="none" stroke="#25C8D8" stroke-width="6"/>
+  <path d="M76 109 H108 V157 H76 Z" fill="#F8F7F3" stroke="#25235F" stroke-width="5"/>
+  <path d="M87 98 H119 V146 H87 Z" fill="#F8F7F3" stroke="#25235F" stroke-width="5"/>
+  <path d="M95 113 H111 M95 124 H111" stroke="#25235F" stroke-width="3"/>
+  <rect x="38" y="134" width="12" height="12" fill="#25C8D8"/>
+  <rect x="142" y="134" width="12" height="12" fill="#25C8D8"/>
+</svg>

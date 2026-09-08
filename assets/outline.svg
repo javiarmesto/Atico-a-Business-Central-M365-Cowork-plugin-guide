@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 32 32" role="img" aria-labelledby="title">
+  <title id="title">ático</title>
+  <g fill="none" stroke="#FFFFFF" stroke-width="2" stroke-linejoin="miter">
+    <path d="M3 22 L16 8 L29 22 M15 5 L18 2"/>
+    <path d="M7 25 H12 M21 25 H25 M12 20 H16 V29 H12 Z M16 17 H21 V26 H16 Z"/>
+  </g>
+</svg>

@@ -1,0 +1,35 @@
+name: Validate reference implementation
+
+on:
+  push:
+    branches: [main]
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4
+        with:
+          node-version: '22'
+          cache: npm
+          cache-dependency-path: native/bridge/package-lock.json
+      - run: npm ci --ignore-scripts --prefix native/bridge
+      - name: Native and bilingual custom packages
+        run: node --test native/scripts/test/package.test.mjs custom/scripts/test/package.test.mjs
+      - name: Bridge tests with test doubles
+        run: npm test --prefix native/bridge
+      - name: Publication guards and documentation links
+        run: node scripts/check-public-files.mjs

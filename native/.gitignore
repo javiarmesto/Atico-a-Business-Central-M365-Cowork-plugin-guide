@@ -1,0 +1,8 @@
+bridge/node_modules/
+bridge/dist/
+build/
+.env
+.env.*
+!.env.example
+plugin.config.local.json
+*.local.json

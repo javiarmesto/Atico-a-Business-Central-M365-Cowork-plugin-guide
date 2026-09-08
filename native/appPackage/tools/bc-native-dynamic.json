@@ -1,0 +1,125 @@
+{
+  "tools": [
+    {
+      "name": "bc_connection_check",
+      "description": "Comprueba la autenticación delegada contra el MCP nativo de Business Central y recupera su catálogo real de herramientas. No consulta clientes ni ejecuta las herramientas descubiertas. Devuelve entorno, empresa y configuración utilizados.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      }
+    },
+    {
+      "name": "bc_actions_search",
+      "description": "Busca acciones de lectura de Business Central. Empieza aquí y usa el ActionName exacto devuelto con bc_actions_describe. El descubrimiento no autoriza por sí solo la ejecución.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "SearchText": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 4096,
+            "description": "Lenguaje natural para semantic; palabras separadas por comas para keyword."
+          },
+          "SearchMode": {
+            "type": "string",
+            "enum": [
+              "keyword",
+              "semantic"
+            ]
+          },
+          "ActionType": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "enum": [
+                "List"
+              ]
+            },
+            "minItems": 1,
+            "maxItems": 1,
+            "description": "Esta versión admite únicamente [\"List\"]."
+          },
+          "Top": {
+            "type": "integer",
+            "minimum": 5,
+            "maximum": 50,
+            "default": 15
+          }
+        },
+        "required": [
+          "SearchText",
+          "SearchMode",
+          "ActionType"
+        ],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      }
+    },
+    {
+      "name": "bc_actions_describe",
+      "description": "Recupera el esquema real de una acción de BC. Usa el nombre exacto que devolvió la búsqueda. Lee el esquema antes de preparar parámetros.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ActionName": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          }
+        },
+        "required": [
+          "ActionName"
+        ],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      }
+    },
+    {
+      "name": "bc_actions_invoke",
+      "description": "Ejecuta consultas List permitidas por la configuración MCP y los permisos del usuario en Business Central. El puente comprueba el nombre exacto y el esquema de consulta List devueltos por BC antes de invocar. Usa search y describe primero. RequestParameters es texto JSON, no un objeto. Admite filter, orderby, select, top (1–100), skip y resultFormat text. No asumas divisas ni deuda vencida a partir del saldo.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "ActionName": {
+            "type": "string",
+            "minLength": 1,
+            "maxLength": 256
+          },
+          "RequestParameters": {
+            "type": "string",
+            "maxLength": 16384,
+            "description": "Objeto JSON serializado, conforme al esquema descrito. Ejemplo: {\"top\":5,\"select\":\"number,displayName\",\"resultFormat\":\"text\"}"
+          }
+        },
+        "required": [
+          "ActionName",
+          "RequestParameters"
+        ],
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      }
+    }
+  ]
+}

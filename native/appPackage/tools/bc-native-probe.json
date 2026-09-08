@@ -1,0 +1,8 @@
+{
+  "tools": [{
+    "name": "bc_connection_check",
+    "description": "Comprueba la autenticación delegada contra el MCP nativo de Business Central y recupera su catálogo real de herramientas. No consulta clientes ni ejecuta las herramientas descubiertas. Devuelve entorno, empresa y configuración utilizados.",
+    "inputSchema": { "type": "object", "properties": {}, "additionalProperties": false },
+    "annotations": { "readOnlyHint": true, "destructiveHint": false, "idempotentHint": true, "openWorldHint": true }
+  }]
+}

@@ -1,0 +1,6 @@
+bridge/node_modules
+bridge/dist
+build
+.env
+.env.*
+*.local.json

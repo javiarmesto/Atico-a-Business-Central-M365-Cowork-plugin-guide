@@ -1,0 +1,131 @@
+{
+  "tools": [
+    {
+      "name": "bc_connection_check",
+      "description": "Comprueba la autenticación delegada contra el MCP nativo de Business Central y recupera su catálogo real de herramientas. No consulta clientes ni ejecuta las herramientas descubiertas. Devuelve entorno, empresa y configuración utilizados.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {},
+        "additionalProperties": false
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      }
+    },
+    {
+      "name": "List_Items_PAG30008",
+      "title": "List Items",
+      "description": "Consulta registros de artículos en Business Central. Solo lectura, sin crear, modificar ni eliminar registros. No uses inventory para filtrar ni ordenar. Available fields: id [string/uuid], number [string], displayName [string], displayName2 [string], type [string ['Inventory', 'Service', 'Non-Inventory']], itemCategoryId [string/uuid], itemCategoryCode [string], blocked [boolean], gtin [string], inventory [number/decimal], unitPrice [number/decimal], priceIncludesTax [boolean], unitCost [number/decimal], taxGroupId [string/uuid], taxGroupCode [string], baseUnitOfMeasureId [string/uuid], baseUnitOfMeasureCode [string], generalProductPostingGroupId [string/uuid], generalProductPostingGroupCode [string], inventoryPostingGroupId [string/uuid], inventoryPostingGroupCode [string], lastModifiedDateTime [string/date-time] (22 total). All fields can be used in select. Non-filterable fields cannot be used in filter and orderby. Non-filterable/non-sortable fields: inventory.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "filter": {
+            "type": "string",
+            "description": "OData V4.0 filter. Supported Operators: eq, ne, lt, le, gt, ge, and, or. Functions: contains, startswith, endswith, tolower, toupper. Use tolower() for case-insensitive: contains(tolower(field),'text'). 'or' ONLY works on the same field; use 'and' across fields. 'not' is unsupported; for simple inequality, use 'ne'. Avoid negating expressions or compound predicates. No arithmetic, no length/month/year/cast/concat. See the tool description for filterable properties and their types. Non-filterable fields are not filterable (see x-non-filterable extension).",
+            "maxLength": 4096
+          },
+          "orderby": {
+            "type": "string",
+            "description": "OData V4.0 orderby (e.g. 'property asc', 'property1 desc, property2'). See the tool description for sortable properties. Non-filterable fields are not sortable (see x-non-filterable extension).",
+            "maxLength": 4096
+          },
+          "select": {
+            "type": "string",
+            "description": "Lista de campos separados por comas, sin prefijo select= ni $. Ejemplo: number,displayName. Los campos disponibles se indican en la descripción de la herramienta.",
+            "maxLength": 4096
+          },
+          "top": {
+            "type": "integer",
+            "description": "Máximo de registros: 1 a 100; predeterminado 10. Pagina explícitamente con skip.",
+            "minimum": 1,
+            "maximum": 100,
+            "default": 10
+          },
+          "skip": {
+            "type": "integer",
+            "description": "Number of records to skip before returning results. Use with $top for pagination.",
+            "minimum": 0
+          },
+          "resultFormat": {
+            "enum": [
+              "text"
+            ],
+            "type": "string",
+            "description": "Esta versión devuelve resultados inline en formato text. No publica lectura de recursos remotos.",
+            "default": "text"
+          }
+        },
+        "additionalProperties": false,
+        "x-non-filterable": [
+          "inventory"
+        ]
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      }
+    },
+    {
+      "name": "List_Customers_PAG30009",
+      "title": "List Customers",
+      "description": "Consulta registros de clientes en Business Central. Solo lectura, sin crear, modificar ni eliminar registros. balanceDue es un saldo agregado; no acredita por sí solo deuda vencida. No asumas una divisa si no aparece en la respuesta. Available fields: id [string/uuid], number [string], displayName [string], type [string ['Company', 'Person']], addressLine1 [string], addressLine2 [string], city [string], state [string], country [string], postalCode [string], phoneNumber [string], email [string], website [string], salespersonCode [string], balanceDue [number/decimal], creditLimit [number/decimal], taxLiable [boolean], taxAreaId [string/uuid], taxAreaDisplayName [string], taxRegistrationNumber [string], currencyId [string/uuid], currencyCode [string], paymentTermsId [string/uuid], shipmentMethodId [string/uuid], paymentMethodId [string/uuid], blocked [string [' ', 'Ship', 'Invoice', 'All']], lastModifiedDateTime [string/date-time] (27 total). All fields can be used in select. Non-filterable fields cannot be used in filter and orderby. Non-filterable/non-sortable fields: taxAreaDisplayName, taxRegistrationNumber, currencyCode.",
+      "inputSchema": {
+        "type": "object",
+        "properties": {
+          "filter": {
+            "type": "string",
+            "description": "OData V4.0 filter. Supported Operators: eq, ne, lt, le, gt, ge, and, or. Functions: contains, startswith, endswith, tolower, toupper. Use tolower() for case-insensitive: contains(tolower(field),'text'). 'or' ONLY works on the same field; use 'and' across fields. 'not' is unsupported; for simple inequality, use 'ne'. Avoid negating expressions or compound predicates. No arithmetic, no length/month/year/cast/concat. See the tool description for filterable properties and their types. Non-filterable fields are not filterable (see x-non-filterable extension).",
+            "maxLength": 4096
+          },
+          "orderby": {
+            "type": "string",
+            "description": "OData V4.0 orderby (e.g. 'property asc', 'property1 desc, property2'). See the tool description for sortable properties. Non-filterable fields are not sortable (see x-non-filterable extension).",
+            "maxLength": 4096
+          },
+          "select": {
+            "type": "string",
+            "description": "Lista de campos separados por comas, sin prefijo select= ni $. Ejemplo: number,displayName. Los campos disponibles se indican en la descripción de la herramienta.",
+            "maxLength": 4096
+          },
+          "top": {
+            "type": "integer",
+            "description": "Máximo de registros: 1 a 100; predeterminado 10. Pagina explícitamente con skip.",
+            "minimum": 1,
+            "maximum": 100,
+            "default": 10
+          },
+          "skip": {
+            "type": "integer",
+            "description": "Number of records to skip before returning results. Use with $top for pagination.",
+            "minimum": 0
+          },
+          "resultFormat": {
+            "enum": [
+              "text"
+            ],
+            "type": "string",
+            "description": "Esta versión devuelve resultados inline en formato text. No publica lectura de recursos remotos.",
+            "default": "text"
+          }
+        },
+        "additionalProperties": false,
+        "x-non-filterable": [
+          "taxAreaDisplayName",
+          "taxRegistrationNumber",
+          "currencyCode"
+        ]
+      },
+      "annotations": {
+        "readOnlyHint": true,
+        "destructiveHint": false,
+        "idempotentHint": true,
+        "openWorldHint": true
+      }
+    }
+  ]
+}
