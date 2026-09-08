@@ -10,10 +10,6 @@ This is a reference implementation. Security fixes target the current `main` bra
 
 The native bridge validates delegated v2 tokens for a fixed tenant, API audience and OAuth client, requires `access_as_user`, and exchanges the user assertion through OBO. It supports reads only. Business Central's configuration and user permissions remain the authorization boundary. A successful health check does not establish BC connectivity.
 
-### Custom MCP template
-
-The generator in `custom/` requires your endpoint and OAuth registration and emits `OAuthPluginVault`. The server implementation is supplied by you: it must validate tokens and authorize every tool call. A packaged tool list, a read-only annotation or a skill instruction is not server-side authorization. The optional collections skill stops at a proposal and does not execute communications or writes.
-
 ## Configuration and data
 
 - Keep client secrets and tokens in the deployment or platform secret store, never in Git or ZIPs.

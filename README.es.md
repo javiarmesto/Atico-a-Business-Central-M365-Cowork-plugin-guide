@@ -8,14 +8,11 @@
 
 Implementación de referencia de la comunidad para conectar Microsoft 365 Copilot Cowork con Business Central mediante plugins MCP. Despliégala en tu entorno, con tus propias identidades de aplicación y permisos. El repositorio no proporciona un servicio alojado y no es un producto oficial de Microsoft.
 
-## Elige una conexión
+## Conexión con Business Central
 
-| Conexión | Qué incluye | Por dónde empezar |
-|---|---|---|
-| **MCP estándar de Business Central** | Puente TypeScript con OAuth delegado, descubrimiento dinámico y consultas List sobre páginas API. | [Conexión nativa](native/README.es.md) · [Guía de despliegue](native/HOW-TO-BC-NATIVE-COWORK.md) |
-| **Tu propio MCP de Business Central** | Plantilla de paquete Cowork con OAuth y catálogo de herramientas sustituible. Tú aportas y proteges el servidor. | [Conexión personalizada](custom/README.es.md) |
+El plugin conecta Cowork con el **MCP estándar de Business Central** mediante un puente TypeScript con OAuth delegado, descubrimiento dinámico y consultas List sobre páginas API. El puente admite solo lectura.
 
-El puente nativo admite solo lectura. La plantilla personalizada no aplica permisos en tu servidor: la autenticación y autorización de herramientas se implementan allí. El [ejemplo de cobros](examples/collections/README.es.md) es un caso opcional de sesiones corporativas y no se incluye en el paquete predeterminado.
+[Conexión nativa](native/README.es.md) · [Guía de despliegue](native/HOW-TO-BC-NATIVE-COWORK.md)
 
 ## Empezar con el MCP estándar
 
@@ -30,7 +27,7 @@ node native/scripts/init-plugin.mjs
 
 Sigue la [guía de despliegue](native/HOW-TO-BC-NATIVE-COWORK.md) para configurar Business Central, Entra, Railway y Teams OAuth. Completa `native/plugin.config.local.json` y genera e instala el paquete. Una plantilla sin configurar no se puede empaquetar correctamente.
 
-Para tu propio MCP, empieza con `node custom/scripts/init-plugin.mjs` y la [guía personalizada](custom/README.es.md). Ninguna plantilla incluye endpoints ni registros OAuth del autor.
+La plantilla utiliza tu propia configuración de despliegue e identidad OAuth.
 
 ## Documentación
 
@@ -39,8 +36,6 @@ Para tu propio MCP, empieza con `node custom/scripts/init-plugin.mjs` y la [guí
 | Conexión nativa | [Overview](native/README.md) | [Resumen](native/README.es.md) |
 | Despliegue nativo completo | [Guide](native/HOW-TO-BC-NATIVE-COWORK.en.md) | [Guía](native/HOW-TO-BC-NATIVE-COWORK.md) |
 | Descubrimiento dinámico | [Design](native/DYNAMIC-MODE.en.md) | [Diseño](native/DYNAMIC-MODE.md) |
-| Conexión MCP personalizada | [Guide](custom/README.md) | [Guía](custom/README.es.md) |
-| Ejemplo opcional de cobros | [Example](examples/collections/README.md) | [Ejemplo](examples/collections/README.es.md) |
 | Artículo | [Read](articles/business-central-cowork-mcp.en.md) | [Leer](articles/business-central-cowork-mcp.es.md) |
 | Seguridad y notificación | [Policy](SECURITY.md) | [Política](SECURITY.es.md) |
 | Contribuciones | [Guide](CONTRIBUTING.md) | [Guía](CONTRIBUTING.es.md) |
@@ -49,7 +44,7 @@ Para tu propio MCP, empieza con `node custom/scripts/init-plugin.mjs` y la [guí
 ## Comprobar en local
 
 ```powershell
-node --test native/scripts/test/package.test.mjs custom/scripts/test/package.test.mjs
+node --test native/scripts/test/package.test.mjs
 npm test --prefix native/bridge
 node scripts/check-public-files.mjs
 ```

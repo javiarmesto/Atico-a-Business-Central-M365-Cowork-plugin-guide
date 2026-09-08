@@ -27,8 +27,8 @@ jobs:
           cache: npm
           cache-dependency-path: native/bridge/package-lock.json
       - run: npm ci --ignore-scripts --prefix native/bridge
-      - name: Native and bilingual custom packages
-        run: node --test native/scripts/test/package.test.mjs custom/scripts/test/package.test.mjs
+      - name: Native plugin package
+        run: node --test native/scripts/test/package.test.mjs
       - name: Bridge tests with test doubles
         run: npm test --prefix native/bridge
       - name: Publication guards and documentation links

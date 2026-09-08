@@ -2,7 +2,7 @@
 
 # ático · Visual identity
 
-Part of **Javier Armesto / Open Engineering Notebook**. The standard and custom MCP connections share this identity. Collections is an optional corporate-session example.
+Part of **Javier Armesto / Open Engineering Notebook**. This identity represents the connection between the standard Business Central MCP and Copilot Cowork.
 
 ## Visual idea
 
@@ -13,8 +13,7 @@ An open roof and its accent identify **ático**. Document sheets represent busin
 | [atico-cover.en.png](atico-cover.en.png) / [atico-cover.png](atico-cover.png) | English/Spanish README covers; preserve the full image and margins. |
 | [color.svg](color.svg) | Editable color symbol, 192 × 192 canvas. |
 | [outline.svg](outline.svg) | Simplified white/transparent symbol, 32 × 32. |
-| [Custom icons](../custom/appPackage/icons/) | PNG exports for the custom package. |
-| [Native icons](../native/appPackage/icons/) | Matching PNG exports for the native package. |
+| [Native icons](../native/appPackage/icons/) | PNG exports for the plugin package. |
 
 | Color | Value | Meaning |
 |---|---|---|
@@ -26,7 +25,7 @@ An open roof and its accent identify **ático**. Document sheets represent busin
 
 Use a fine grid, restrained editorial typography and monospaced metadata. Reserve magenta for a human observation; it is not decoration for the icon. Avoid gradients, robots, brains and glossy volume.
 
-Edit SVG sources first, then export PNGs at their original dimensions. Color icons have an opaque background; outlines contain white and transparency only. Update both package copies together and keep the two template accent colors aligned with navy.
+Edit SVG sources first, then export PNGs at their original dimensions. Color icons have an opaque background; outlines contain white and transparency only. Update the PNGs in `native/appPackage/icons/` in the same change and keep the manifest template accent color aligned with navy.
 
 The Spanish cover was created with Open Engineering Visual Assets; the English version localizes its labels using the built-in image generator. Production brief: warm technical paper, open roof and context sheets, cyan connection, and a human-judgment annotation. The image does not describe the plugin's technical contract.
 

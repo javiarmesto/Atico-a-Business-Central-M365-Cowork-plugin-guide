@@ -26,7 +26,7 @@ Business Central determines action availability and applies the user's permissio
 | `Dockerfile` | Service build and startup. |
 | `.env.example` | Variable reference; fill in your own target and select the mode. |
 
-This package has an independent M365 identity from the [custom connector](../custom/README.md). It never includes the collections skill.
+Each installation has its own M365 application identity, which is preserved for updates.
 
 ## Quick start
 

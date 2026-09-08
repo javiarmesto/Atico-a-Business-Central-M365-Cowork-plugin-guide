@@ -332,7 +332,7 @@ $zipPath = Join-Path (Get-Location) "native\build\bc-native-dynamic-v$pluginVers
 atk package --manifest-file $manifestPath --output-package-file $zipPath --output-folder ".\native\build\packaged"
 ```
 
-El ZIP debe contener `manifest.json`, `color.png` y `outline.png` en su raíz, y el catálogo en `tools/bc-native-dynamic.json`. El paquete nativo generado no incorpora la skill de cobros del otro complemento del repositorio.
+El ZIP debe contener `manifest.json`, `color.png` y `outline.png` en su raíz, y el catálogo en `tools/bc-native-dynamic.json`.
 
 ## 10. Instalar y conectar en Cowork
 

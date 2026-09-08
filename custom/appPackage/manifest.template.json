@@ -1,6 +1,0 @@
-{
-  "$schema": "https://developer.microsoft.com/json-schemas/teams/v1.28/MicrosoftTeams.schema.json",
-  "manifestVersion": "1.28",
-  "icons": { "color": "color.png", "outline": "outline.png" },
-  "accentColor": "#25235F"
-}

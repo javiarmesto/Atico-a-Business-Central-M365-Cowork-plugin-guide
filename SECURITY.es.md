@@ -10,10 +10,6 @@ Este repositorio es una implementación de referencia. Las correcciones de segur
 
 El puente nativo valida tokens delegados v2 para un tenant, audiencia de API y cliente OAuth fijos, exige `access_as_user` e intercambia la identidad del usuario mediante OBO. Admite solo lectura. La configuración de Business Central y los permisos del usuario constituyen el límite de autorización. Un health check correcto no confirma la conexión con BC.
 
-### Plantilla MCP personalizada
-
-El generador de `custom/` exige tu endpoint y registro OAuth y genera `OAuthPluginVault`. Tú aportas el servidor: debe validar los tokens y autorizar cada llamada. Una lista de herramientas en el paquete, una anotación de lectura o una instrucción de skill no son autorización del servidor. La skill opcional de cobros se detiene en la propuesta y no ejecuta comunicaciones ni escrituras.
-
 ## Configuración y datos
 
 - Guarda secretos y tokens en los almacenes del despliegue o de la plataforma; nunca en Git ni en ZIPs.

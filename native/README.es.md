@@ -6,7 +6,7 @@
 
 # MCP estándar de Business Central para Copilot Cowork
 
-[Inicio](../README.es.md) · [Guía completa](HOW-TO-BC-NATIVE-COWORK.md) · [MCP personalizado](../custom/README.es.md)
+[Inicio](../README.es.md) · [Guía completa](HOW-TO-BC-NATIVE-COWORK.md)
 
 Complemento de Microsoft 365 Copilot Cowork con acceso delegado al MCP estándar de Business Central. El puente TypeScript se despliega en Railway e incorpora la autenticación y las cabeceras del destino.
 
@@ -44,7 +44,7 @@ Configura expresamente `BC_TOOL_MODE=dynamic`: el modo predeterminado del códig
 | `Dockerfile` | Construcción y arranque del servicio. |
 | `.env.example` | Referencia de variables; sustituir el destino y seleccionar el modo. |
 
-El plugin nativo tiene una identidad M365 independiente del conector personalizado. No incluye la skill opcional de cobros.
+Cada instalación tiene una identidad de aplicación M365 propia, que se conserva en las actualizaciones.
 
 ## Arranque rápido
 
