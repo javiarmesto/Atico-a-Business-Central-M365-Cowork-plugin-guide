@@ -4,6 +4,13 @@
 
 # ático · Business Central for Copilot Cowork
 
+## Expected result and repository map
+
+After configuring your own deployment and signing in, verify dynamic discovery and one authorized **List** query against your BC sandbox. Record the connected identity, configuration and returned records. Packaging tests alone cannot establish that result.
+
+`native/bridge/` contains the bridge; `native/` contains plugin configuration, scripts and deployment guides; `articles/` explains the design; `assets/` holds visuals with their own attribution guidance. The Spanish entry point is [README.es.md](README.es.md). Static review on **6 October 2026**; no Cowork sign-in, deployment or BC read performed in this audit.
+
+
 **Bring ERP context into a work conversation.**
 
 A community reference implementation for connecting Microsoft 365 Copilot Cowork to Business Central through MCP plugins. Deploy it in your own environment, with your own application identities and permissions. This repository does not provide a hosted service and is not an official Microsoft product.
